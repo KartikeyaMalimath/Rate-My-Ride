@@ -49,7 +49,7 @@ include ("components/template.php");
         </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
-          <ul class="breadcrumb">
+          <ul  class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
             <li class="breadcrumb-item active">Basic forms        </li>
           </ul>
@@ -60,25 +60,37 @@ include ("components/template.php");
               <!-- Basic Form-->
               <div class="col-lg-6">
                 <div class="block">
-                  <div class="title"><strong class="d-block">Basic Form</strong><span class="d-block">Lorem ipsum dolor sit amet consectetur.</span></div>
+                  <div class="title"><strong class="d-block">Registration Form</strong></div>
                   <div class="block-body">
-                    <form>
+                    <form method="POST" action="../functions/userreg.php">
                       <div class="form-group">
-                        <label class="form-control-label">Email</label>
-                        <input type="email" placeholder="Email Address" class="form-control">
+                        <label class="form-control-label">Username</label>
+                        <input type="text" name="username" placeholder="User name" class="form-control" required>
                       </div>
                       <div class="form-group">       
                         <label class="form-control-label">Password</label>
-                        <input type="password" placeholder="Password" class="form-control">
+                        <input type="password" name = "password" placeholder="Password" class="form-control" required>
                       </div>
+
                       <div class="form-group">       
-                        <input type="submit" value="Signin" class="btn btn-primary">
+                        <label class="form-control-label" required>Type</label>
+                        
+                          <select name="type" class="form-control mb-3 mb-3" style="width:100%">
+                            <option>admin</option>
+                            <option>ticket</option>
+                            
+                          </select>
+                        
+                      </div>
+
+                      <div class="form-group">       
+                        <input type="submit" name= "usersbmt" value="Submit" class="btn btn-success">
                       </div>
                     </form>
                   </div>
                 </div>
               </div>
-              <!-- Horizontal Form-->
+              <!-- Horizontal Form
               <div class="col-lg-6">
                 <div class="block">
                   <div class="title"><strong class="d-block">Horizontal Form</strong><span class="d-block">Lorem ipsum dolor sit amet consectetur.</span></div>
@@ -104,8 +116,49 @@ include ("components/template.php");
                     </form>
                   </div>
                 </div>
+              </div>-->
+
+              <div class="col-lg-6">
+                <div class="block margin-bottom-sm">
+                  <div class="title"><strong>Striped Table</strong></div>
+                  <div class="table-responsive"> 
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <th scope="row">1</th>
+                          <td>Mark</td>
+                          <td>Otto</td>
+                          <td>@mdo</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">2</th>
+                          <td>Jacob</td>
+                          <td>Thornton</td>
+                          <td>@fat</td>
+                        </tr>
+                        <tr>
+                          <th scope="row">3</th>
+                          <td>Larry</td>
+                          <td>the Bird</td>
+                          <td>@twitter  </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
               </div>
-              <!-- Inline Form-->
+
+
+
+              <!-- Inline Form
               <div class="col-lg-8">                           
                 <div class="block">
                   <div class="title"><strong>Inline Form</strong></div>
@@ -125,14 +178,15 @@ include ("components/template.php");
                     </form>
                   </div>
                 </div>
-              </div>
+              </div>-->
               <!-- Modal Form-->
+              <!--
               <div class="col-lg-4">
                 <div class="block">
                   <div class="title"><strong>Modal Form</strong></div>
                   <div class="block-body text-center">
                     <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-primary">Form in simple modal </button>
-                    <!-- Modal-->
+                     Modal
                     <div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
                       <div role="document" class="modal-dialog">
                         <div class="modal-content">
@@ -164,48 +218,53 @@ include ("components/template.php");
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- Form Elements -->
+              </div>-->
+               <!--Form Elements-->
               <div class="col-lg-12">
                 <div class="block">
-                  <div class="title"><strong>All form elements</strong></div>
+                  <div class="title"><strong>Auto Registration</strong></div>
                   <div class="block-body">
                     <form class="form-horizontal">
+
+
+
+
                       <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Normal</label>
+                        <label class="col-sm-3 form-control-label">Auto Number</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control">
+                          <input type="text" placeholder="Auto Number" class="form-control" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Help text</label>
+                        <label class="col-sm-3 form-control-label">Name</label>
                         <div class="col-sm-9">
-                          <input type="text" class="form-control"><small class="help-block-none">A block of help text that breaks onto a new line and may extend beyond one line.</small>
+                          <input type="text" placeholder="Name" class="form-control" required >
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Password</label>
+                        <label class="col-sm-3 form-control-label">Phone Number</label>
                         <div class="col-sm-9">
-                          <input type="password" name="password" class="form-control">
+                          <input type="tel" placeholder="Phone No" pattern="[6-9]{1}[0-9]{9}" class="form-control" maxlength="10" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Placeholder</label>
+                        <label class="col-sm-3 form-control-label">License Number</label>
                         <div class="col-sm-9">
-                          <input type="text" placeholder="placeholder" class="form-control">
+                          <input type="text" placeholder="License Number" class="form-control" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
-                        <label class="col-sm-3 form-control-label">Disabled</label>
+                        <label class="col-sm-3 form-control-label">Registration Year</label>
                         <div class="col-sm-9">
-                          <input type="text" disabled="" placeholder="Disabled input here..." class="form-control">
+                          <input type="tel" placeholder="Registration Year" class="form-control">
                         </div>
                       </div>
-                      <div class="line"></div>
+
+                      <!--<div class="line"></div>
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Checkboxes and radios <br><small class="text-primary">Normal Bootstrap elements</small></label>
                         <div class="col-sm-9">
@@ -462,12 +521,12 @@ include ("components/template.php");
                             <input type="text" class="form-control">
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                       <div class="line"></div>
                       <div class="form-group row">
                         <div class="col-sm-9 ml-auto">
-                          <button type="submit" class="btn btn-secondary">Cancel</button>
-                          <button type="submit" class="btn btn-primary">Save changes</button>
+                          <button type="submit" class="btn btn-success">Submit</button>
+                          <!--<button type="submit" class="btn btn-primary">Save changes</button>-->
                         </div>
                       </div>
                     </form>
@@ -481,7 +540,7 @@ include ("components/template.php");
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">2019 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+              <p class="no-margin-bottom">Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
             </div>
           </div>
         </footer>
