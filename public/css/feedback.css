@@ -25,7 +25,7 @@
 }
 
 .rate {
-    float: left;
+    display:inline-block;
     height: 46px;
     padding: 0 10px;
 }
