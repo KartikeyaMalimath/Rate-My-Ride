@@ -224,43 +224,43 @@ include ("components/template.php");
                 <div class="block">
                   <div class="title"><strong>Auto Registration</strong></div>
                   <div class="block-body">
-                    <form class="form-horizontal">
+                    <form class="form-horizontal" method="POST" action="../functions/autoreg.php">
 
-
+                    
 
 
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Auto Number</label>
                         <div class="col-sm-9">
-                          <input type="text" placeholder="Auto Number" class="form-control" required>
+                          <input type="text" name = "autono" placeholder="Auto Number" class="form-control" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Name</label>
                         <div class="col-sm-9">
-                          <input type="text" placeholder="Name" class="form-control" required >
+                          <input type="text" name = "autodriname" placeholder="Name" class="form-control" required >
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Phone Number</label>
                         <div class="col-sm-9">
-                          <input type="tel" placeholder="Phone No" pattern="[6-9]{1}[0-9]{9}" class="form-control" maxlength="10" required>
+                          <input type="tel" name = "phoneno" placeholder="Phone No" pattern="[6-9]{1}[0-9]{9}" class="form-control" maxlength="10" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">License Number</label>
                         <div class="col-sm-9">
-                          <input type="text" placeholder="License Number" class="form-control" required>
+                          <input type="text" name = "licenseno" placeholder="License Number" class="form-control" required>
                         </div>
                       </div>
                       <div class="line"></div>
                       <div class="form-group row">
                         <label class="col-sm-3 form-control-label">Registration Year</label>
                         <div class="col-sm-9">
-                          <input type="tel" placeholder="Registration Year" class="form-control">
+                          <input type="tel"name = "regyear" placeholder="Registration Year" class="form-control">
                         </div>
                       </div>
 
@@ -525,7 +525,7 @@ include ("components/template.php");
                       <div class="line"></div>
                       <div class="form-group row">
                         <div class="col-sm-9 ml-auto">
-                          <button type="submit" class="btn btn-success">Submit</button>
+                          <button type="submit"  name = "usersbmt" value = "Submit" class="btn btn-success">Submit</button>
                           <!--<button type="submit" class="btn btn-primary">Save changes</button>-->
                         </div>
                       </div>
