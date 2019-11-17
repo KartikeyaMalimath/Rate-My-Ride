@@ -331,7 +331,10 @@ include ("components/feedtemplate.php");
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
-              <p class="no-margin-bottom">2019 &copy; Rate My Ride. Developed by <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride">Rate-My-Ride Team</a>. Thanks to <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>!</p>
+              <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
+              <p class="no-margin-bottom">© 2019 copyrights | Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> 
+              <!-- Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>. -->
+            </p>
             </div>
           </div>
         </footer>

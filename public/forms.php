@@ -115,8 +115,8 @@ include ("../include/db.php");
                           $stmt1 = "SELECT * FROM user WHERE flag = 1 AND active = 1";
                           $res1 = $con->query($stmt1);
                           if($res1->num_rows > 0){
-                            while($row1 = $res1->fetch_assoc()){
-                              $i = 1;
+                            $i = 1;
+                            while($row1 = $res1->fetch_assoc()){                              
                               echo "
                                     <tr>
                                       <th scope='row'>$i</th>
@@ -232,7 +232,9 @@ include ("../include/db.php");
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+              <p class="no-margin-bottom">© 2019 copyrights | Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> 
+              <!-- Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>. -->
+            </p>
             </div>
           </div>
         </footer>

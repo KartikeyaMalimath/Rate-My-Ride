@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-// if(!isset($_SESSION['user']) || $_SESSION['access'] != 'admin') {
-//   echo "<script>top.window.location = '../function/logout.php'</script>";
-// }
+if(!isset($_SESSION['user']) || $_SESSION['access'] != 'ticket') {
+  echo "<script>top.window.location = '../function/logout.php'</script>";
+}
 
 include ("components/tktcomponent.php");
 include ("../include/db.php");
@@ -116,7 +116,9 @@ include ("../include/db.php");
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+              <p class="no-margin-bottom">© 2019 copyrights | Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> 
+              <!-- Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>. -->
+            </p>
             </div>
           </div>
         </footer>

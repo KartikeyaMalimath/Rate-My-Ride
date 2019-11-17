@@ -26,8 +26,8 @@ $(document).ready(function () {
                 }],
                 yAxes: [{
                     ticks: {
-                        max: 60,
-                        min: 10
+                        max: 180,
+                        min: 0
                     },
                     display: true,
                     gridLines: {
@@ -40,10 +40,10 @@ $(document).ready(function () {
             }
         },
         data: {
-            labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
+            labels: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
             datasets: [
                 {
-                    label: "Page Visitors",
+                    label: "Weekly commutes",
                     fill: true,
                     lineTension: 0.2,
                     backgroundColor: "transparent",
@@ -62,11 +62,11 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 0,
-                    data: [20, 27, 20, 35, 30, 40, 33, 25, 39],
+                    data: [45,82,68,78,45,105,45],
                     spanGaps: false
                 },
                 {
-                    label: "Page Views",
+                    label: "Weekly Feedback",
                     fill: true,
                     lineTension: 0.2,
                     backgroundColor: "transparent",
@@ -85,7 +85,7 @@ $(document).ready(function () {
                     pointHoverBorderWidth: 2,
                     pointRadius: 1,
                     pointHitRadius: 10,
-                    data: [25, 17, 28, 25, 33, 27, 30, 33, 27],
+                    data: [35,12,23,45,12,45,23],
                     spanGaps: false
                 }
             ]
@@ -117,10 +117,10 @@ $(document).ready(function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["January", "February", "March", "April", "May", "June"],
             datasets: [
                 {
-                    label: "Data Set 1",
+                    label: "Commutes",
                     backgroundColor: [
                         "rgba(134, 77, 217, 0.57)",
                         "rgba(134, 77, 217, 0.57)",
@@ -149,10 +149,10 @@ $(document).ready(function () {
                         "rgba(134, 77, 217, 1)"
                     ],
                     borderWidth: 1,
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [265, 225, 180, 281, 156, 255],
                 },
                 {
-                    label: "Data Set 2",
+                    label: "Feedback",
                     backgroundColor: [
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
@@ -181,7 +181,7 @@ $(document).ready(function () {
                         "rgba(75, 75, 75, 0.7)"
                     ],
                     borderWidth: 1,
-                    data: [35, 40, 60, 47, 88, 27, 30],
+                    data: [160, 140, 160, 147, 56, 127],
                 }
             ]
         }
@@ -295,10 +295,10 @@ $(document).ready(function () {
             },
         },
         data: {
-            labels: ["January", "February", "March", "April", "May", "June", "July"],
+            labels: ["July", "August", "September", "October", "November", "December"],
             datasets: [
                 {
-                    label: "Data Set 1",
+                    label: "Commutes",
                     backgroundColor: [
                         "rgba(75, 75, 75, 0.7)",
                         "rgba(75, 75, 75, 0.7)",
@@ -327,10 +327,10 @@ $(document).ready(function () {
                         "rgba(75, 75, 75, 0.7)"
                     ],
                     borderWidth: 1,
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    data: [265, 189, 280, 181, 256, 155],
                 },
                 {
-                    label: "Data Set 2",
+                    label: "Feedback",
                     backgroundColor: [
                         "rgba(238, 139, 152, 0.7)",
                         "rgba(238, 139, 152, 0.7)",
@@ -359,7 +359,7 @@ $(document).ready(function () {
                         "rgba(238, 139, 152, 1)"
                     ],
                     borderWidth: 1,
-                    data: [35, 40, 60, 47, 88, 27, 30],
+                    data: [135, 140, 220, 97, 188, 87],
                 }
             ]
         }

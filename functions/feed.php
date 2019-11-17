@@ -29,6 +29,15 @@ if(isset($_POST['rate']))
         $stmt->bind_param('ssdssd',$aid, $tid, $rating, $feed, $time, $flag);
         //echo "line1";
         if ($stmt->execute()) {
+
+            $stmt1 = "SELECT AVG(star) as avgstar FROM feedback WHERE auto_id = '$aid'";
+            $res1 = $con->query($stmt1);
+            $row1 = $res1->fetch_assoc();
+            $avg = $row1['avgstar'];
+
+            $query2 = "UPDATE auto SET star = $avg WHERE aid = '$aid'";
+            mysqli_query($con,$query2);
+            $con->query($query2);
             //echo "line2";
             echo "<script type='text/javascript'>alert('Rating given');</script>";
             // echo "<script>top.window.location = '../public/feedback.php'</script>";

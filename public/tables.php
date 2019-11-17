@@ -1,6 +1,12 @@
 <?php
 session_start();
+
+if(!isset($_SESSION['user']) || $_SESSION['access'] != 'admin') {
+  echo "<script>top.window.location = '../function/logout.php'</script>";
+}
+
 include ("components/template.php");
+include ("../include/db.php");
 
 ?>
 
@@ -25,6 +31,7 @@ include ("components/template.php");
     <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/feedback.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
@@ -47,187 +54,142 @@ include ("components/template.php");
         <!-- Page Header-->
         <div class="page-header no-margin-bottom">
           <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Tables</h2>
+            <h2 class="h5 no-margin-bottom">To-be Reviewed</h2>
           </div>
         </div>
         <!-- Breadcrumb-->
         <div class="container-fluid">
           <ul class="breadcrumb">
             <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Tables        </li>
+            <li class="breadcrumb-item active">Under Review</li>
           </ul>
         </div>
         <section class="no-padding-top">
           <div class="container-fluid">
             <div class="row">
               <div class="col-lg-6">
-                <div class="block margin-bottom-sm">
-                  <div class="title"><strong>Basic Table</strong></div>
-                  <div class="table-responsive"> 
-                    <table class="table">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="block margin-bottom-sm">
-                  <div class="title"><strong>Striped Table</strong></div>
-                  <div class="table-responsive"> 
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter  </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
                 <div class="block">
-                  <div class="title"><strong>Striped table with hover effect</strong></div>
+                  <div class="title"><strong>To-be Reviewed</strong></div>
                   <div class="table-responsive"> 
                     <table class="table table-striped table-hover">
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                          <th>Auto Number</th>
+                          <th>Stars</th>
+                          <th><center>Profile</center></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter       </td>
-                        </tr>
+                      <?php
+
+                      $stmt1 = "SELECT * FROM auto WHERE active = 1 AND star BETWEEN 0 AND 2 ";
+                      $res1 = $con->query($stmt1);
+                      if($res1->num_rows > 0){
+                        $i=1;
+                        while($row1 = $res1->fetch_assoc()){
+                          $temp = $row1['star'];
+                          echo "
+                              <tr>
+                                <th scope='row'>{$i}</th>
+                                <td>{$row1['number']}</td>
+                                <td>";
+                                    
+                                    for($k=0; $k <5; $k++){
+                                        if($temp <= 0.45 ){
+                                            echo "<span class='fa fa-star'></span>";
+                                        }
+                                        else {
+                                            echo "<span class='fa fa-star checked'></span>";
+                                        }
+                                        $temp--;
+                                    }
+
+                                echo "  
+                                </td>
+                                <td><center><button id='{$row1['aid']}' class='btn btn-info' onclick='profile(this.id)' style='width:70%;'>Check</button></center></td>
+                              </tr>";
+                              $i++;
+                        }
+                      }
+                        ?>
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6">
-                <div class="block">
-                  <div class="title"><strong>Compact Table</strong></div>
-                  <div class="table-responsive"> 
-                    <table class="table table-striped table-sm">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter      </td>
-                        </tr>
-                        <tr>
-                          <th scope="row">4</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">5</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
+
+              <?php 
+              
+              if(isset($_GET['aid'])) {
+                  $aaid = $_GET['aid'];
+                  $stmt3 = "SELECT number FROM auto WHERE aid = '$aaid'";
+                  $res3 = $con->query($stmt3);
+                  $row3 = $res3->fetch_assoc();
+                  echo "                  
+                        <div class='col-lg-6'>
+                        <div class='block'>
+                          <div class='title'><strong>{$row3['number']}</strong></div>
+                          <div class='table-responsive'> 
+                            <table class='table table-striped table-hover'>
+                              <thead>
+                                <tr>
+                                  <th>#</th>
+                                  <th>Stars</th>
+                                  <th>Feedback</th>
+                                </tr>
+                              </thead>
+                              <tbody>";                            
+
+                              $stmt2 = "SELECT * FROM feedback WHERE auto_id = '$aaid' ";
+                              $res2 = $con->query($stmt2);
+                              if($res2->num_rows > 0){
+                                $i=1;
+                                while($row2 = $res2->fetch_assoc()){
+                                  $temp = $row2['star'];
+                                  echo "
+                                      <tr>
+                                        <th scope='row'>{$i}</th>
+                                        <td>";
+                                            
+                                            for($k=0; $k <5; $k++){
+                                                if($temp <= 0.45 ){
+                                                    echo "<span class='fa fa-star'></span>";
+                                                }
+                                                else {
+                                                    echo "<span class='fa fa-star checked'></span>";
+                                                }
+                                                $temp--;
+                                            }
+
+                                        echo "  
+                                        </td>
+                                        <td>{$row2['feed']}</td>
+                                      </tr>";
+                                      $i++;
+                                      
+                                }
+                              }      echo "                      
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ";
+              }
+              
+              ?>
+              
           </div>
         </section>
         <footer class="footer">
           <div class="footer__block block no-margin-bottom">
             <div class="container-fluid text-center">
               <!-- Please do not remove the backlink to us unless you support us at https://bootstrapious.com/donate. It is part of the license conditions. Thank you for understanding :)-->
-              <p class="no-margin-bottom">2019 &copy; Your company. Design by <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>.</p>
+              <p class="no-margin-bottom">© 2019 copyrights | Designed by: <a href="https://github.com/KartikeyaMalimath/Rate-My-Ride.git">Rate-My-Ride</a> 
+              <!-- Thanks to: <a href="https://bootstrapious.com/p/bootstrap-4-dark-admin">Bootstrapious</a>. -->
+            </p>
             </div>
           </div>
         </footer>
@@ -241,5 +203,13 @@ include ("components/template.php");
     <script src="vendor/chart.js/Chart.min.js"></script>
     <script src="vendor/jquery-validation/jquery.validate.min.js"></script>
     <script src="js/front.js"></script>
+    <script>
+    
+    function profile(id) {
+      window.location.replace("./tables.php?aid="+id);
+    }
+
+    </script>
+
   </body>
 </html>
