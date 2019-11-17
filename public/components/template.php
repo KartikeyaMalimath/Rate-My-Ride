@@ -1,5 +1,8 @@
 <?php 
 
+$name = $_SESSION['user'];
+$type = $_SESSION['access'];
+
 	$template = "
 		<nav class='navbar navbar-expand-lg'>
         <div class='search-panel'>
@@ -33,7 +36,7 @@
             <!-- Languages dropdown    -->
             
             <!-- Log out               -->
-            <div class='list-inline-item logout'><a id='logout' href='login.html' class='nav-link'> <span class='d-none d-sm-inline'>Logout </span><i class='icon-logout'></i></a></div>
+            <div class='list-inline-item logout'><a id='logout' href='../functions/logout.php' class='nav-link'> <span class='d-none d-sm-inline'>Logout </span><i class='icon-logout'></i></a></div>
           </div>
         </div>
       </nav>
@@ -45,8 +48,8 @@
         <div class='sidebar-header d-flex align-items-center'>
           <!--div class='avatar'><img src='img/avatar-6.jpg' alt='...' class='img-fluid rounded-circle'></div>-->
           <div class='title'>
-            <h1 class='h5'>Mark Stephen</h1>
-            <p>Web Designer</p>
+            <h1 class='h5'>{$name}</h1>
+            <p>{$type}</p>
           </div>
         </div>
         <!-- Sidebar Navidation Menus--><span class='heading'>Main</span>

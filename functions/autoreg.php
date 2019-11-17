@@ -3,20 +3,12 @@
 //session_start();
 include ('../include/db.php');
  //echo "test";
- if(isset($_POST['usersbmt']))  
+ if(isset($_POST['autono']))  
  {  
-        //echo "submit";
-    //   if(empty($_POST["username"]) || empty($_POST["password"]))  
-    //   {  
-        //    echo '<script>alert("Both Fields are required")</script>';  
-    //   }  
-     // else  
-      //{  
-            //echo "else";
             //create time stamp
-            //date_default_timezone_set('Asia/Kolkata'); 
-            //$t=time();
-            //$time = date("d-m-Y G:i:s", $t);
+            date_default_timezone_set('Asia/Kolkata'); 
+            $t=time();
+            $time = date("d-m-Y G:i:s", $t);
             //Create unique auto reg
             $prefix = "RMR";
             $autoid = uniqid($prefix);
@@ -30,8 +22,6 @@ include ('../include/db.php');
             $blacklist = 0;
             $review = 0;
             $star = 0;
-            //password Hashing
-            //$password = password_hash($password, PASSWORD_DEFAULT);  
             //Inserting to database
             $query = "INSERT INTO auto (aid,number,name,phone,license,regyear,active,blacklist,review,star) VALUES(?,?,?,?,?,?,?,?,?,?)";  
             $stmt = $con->prepare($query);
@@ -46,7 +36,7 @@ include ('../include/db.php');
             else {
                 
             echo "Error : " . $con->error; // on dev mode only
-            echo "<script>top.window.location = '../public/forms.php'</script>";
+            // echo "<script>top.window.location = '../public/forms.php'</script>";
             
             // echo "Error, please try again later"; //live environment
             }

@@ -1,6 +1,6 @@
 <?php
 include ("../include/db.php");
-include ("components/feedtemplate.php");
+
 
 if(isset($_GET['ticket'])){
     $tid = $_GET['ticket'];
@@ -20,9 +20,18 @@ if(isset($_GET['ticket'])){
 
     $sum = $sumrow['starsum'];
     $count = $sumrow['cnt'];
-    $avgstar = $sum /$count;
-    $disavg = $avgstar;
+    if ($count > 0) {
+      $avgstar = $sum /$count;
+      $disavg = $avgstar;
+    } else {
+      $avgstar = 0;
+      $disavg = 0;
+      $count = 1;
+    }
+    
 }
+
+include ("components/feedtemplate.php");
 ?>
 
 <!DOCTYPE html>
@@ -66,7 +75,7 @@ if(isset($_GET['ticket'])){
       <div class="page-content">
         <div class="page-header">
           <div class="container-fluid">
-            <h2 class="h5 no-margin-bottom">Feedback</h2>
+            <h2 class="h5 no-margin-bottom">Feedback for : <?php echo $autorow['name']; ?></h2>
           </div>
         </div>
         <section class="no-padding-bottom">

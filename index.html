@@ -45,22 +45,21 @@
             <div class="col-lg-6">
               <div class="form d-flex align-items-center">
                 <div class="content">
-                  <form method="get" class="form-validate mb-4">
+                  <form method="POST" action="functions/login.php" class="form-validate mb-4">
                     <div class="form-group">
-                      <input id="login-username" type="text" name="loginUsername" required data-msg="Please enter your username" class="input-material">
+                      <input id="login-username" type="text" name="username" required data-msg="Please enter your username" class="input-material" required>
                       <label for="login-username" class="label-material">User Name</label>
                     </div>
                     <div class="form-group">
-                      <input id="login-password" type="password" name="loginPassword" required data-msg="Please enter your password" class="input-material">
+                      <input id="login-password" type="password" name="password" required data-msg="Please enter your password" class="input-material" required>
                       <label for="login-password" class="label-material">Password</label>
                     </div>
-					<div class="form-group">
+					          <div class="form-group">
                       <input id="show" type="checkbox" name="show" onclick= "visible()" class="btn-primary">
                       <label for="show" class="label-material">&nbsp Show Password</label>
                     </div>
-                    <button type="submit" class="btn btn-primary" style = "width : 20vh;">Login</button>
+                    <Input type="submit" class="btn btn-primary" style = "width : 20vh;" value="Login" name="submit">
                   </form>
-					<!--<a href="#" class="forgot-pass">Forgot Password?</a><br><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>-->
                 </div>
               </div>
             </div>

@@ -23,17 +23,6 @@
           </div>
           <div class='right-menu list-inline no-margin-bottom'>    
             <div class='list-inline-item'><a href='#' class='search-open nav-link'><i class='icon-magnifying-glass-browser'></i></a></div>
-            
-            <!-- Tasks-->
-            
-            <!-- Tasks end-->
-            <!-- Megamenu-->
-            
-            <!-- Megamenu end     -->
-            <!-- Languages dropdown    -->
-            
-            <!-- Log out               -->
-            
           </div>
         </div>
       </nav>
@@ -45,7 +34,7 @@
         <div class='sidebar-header d-flex align-items-center'>
           <!--div class='avatar'><img src='img/avatar-6.jpg' alt='...' class='img-fluid rounded-circle'></div>-->
           <div class='title'>
-            <h1 class='h5'>Auto Rider</h1>
+            <h1 class='h5'>{$autorow['name']}</h1>
             <p>Service Excellence</p>
           </div>
         </div>
