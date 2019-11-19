@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user']) || $_SESSION['access'] != 'admin') {
-  echo "<script>top.window.location = '../function/logout.php'</script>";
+  echo "<script>top.window.location = '../functions/logout.php'</script>";
 }
 include ("components/template.php");
 ?>

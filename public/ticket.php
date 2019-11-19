@@ -2,7 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['user']) || $_SESSION['access'] != 'ticket') {
-  echo "<script>top.window.location = '../function/logout.php'</script>";
+  echo "<script>top.window.location = '../functions/logout.php'</script>";
 }
 
 include ("components/tktcomponent.php");
@@ -13,7 +13,7 @@ include ("../include/db.php");
   <head> 
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Dark Bootstrap Admin by Bootstrapious.com</title>
+    <title>Rate My Ride - Feedback</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="robots" content="all,follow">
