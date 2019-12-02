@@ -1,9 +1,6 @@
 <?php
 session_start();
-
-if(!isset($_SESSION['user']) || $_SESSION['access'] != 'admin') {
-  echo "<script>top.window.location = '../functions/logout.php'</script>";
-}
+``````````````````````
 include ("components/feedtemplate.php");
 ?>
 <!DOCTYPE html>
