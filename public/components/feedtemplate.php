@@ -41,7 +41,7 @@
         <!-- Sidebar Navidation Menus--><span class='heading'>Main</span>
         <ul class='list-unstyled'>
           <li id = 'lihome' ><a href='./feedback.php'> <i class='icon-home'></i>Home </a></li>
-          <li><a href='#'> <i class='icon-logout'></i>About Us</a></li>
+          <li id='about'><a href='aboutfeed.php'> <i class='icon-logout'></i>About Us</a></li>
         
       </nav>
 	";

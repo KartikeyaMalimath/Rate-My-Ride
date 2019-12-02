@@ -58,14 +58,8 @@ $type = $_SESSION['access'];
           <li id = 'litables'><a href='tables.php'> <i class='icon-grid'></i>To be Reviwed</a></li>
           <li id = 'licharts'><a href='charts.php'> <i class='fa fa-bar-chart'></i>Recent Reviews</a></li>
           <li id = 'liforms'><a href='forms.php'> <i class='icon-padnote'></i>Registrations</a></li>
-          <li><a href='#exampledropdownDropdown' aria-expanded='false' data-toggle='collapse'> <i class='icon-windows'></i>Auto Details</a>
-            <ul id='exampledropdownDropdown' class='collapse list-unstyled '>
-              <li><a href='#'>Active Autos</a></li>
-              <li><a href='#'>Blacklisted Autos</a></li>
-              <li><a href='#'>Deactivated Autos</a></li>
-            </ul>
-          </li>
-          <li><a href='#'> <i class='icon-logout'></i>About Us</a></li>
+          <li id = 'list'><a href='autos.php'> <i class='icon-padnote'></i>Registered autos</a></li>          
+          <li id='about'><a href='about.php'> <i class='icon-logout'></i>About Us</a></li>
         
       </nav>
 	";

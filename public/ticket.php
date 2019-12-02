@@ -29,6 +29,7 @@ include ("../include/db.php");
     <link rel="stylesheet" href="css/style.sea.css" id="theme-stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/feedback.css">
     <!-- Favicon-->
     <link rel="shortcut icon" href="img/favicon.ico">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -108,7 +109,52 @@ include ("../include/db.php");
                 </div>
               </div>
                <!--Form Elements-->
-             
+               <div class="col-lg-6">
+               <div class="block">
+                  <div class="title"><strong>Available autos</strong></div>
+                  <div class="table-responsive"> 
+                    <table class="table table-striped table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>Auto Number</th>
+                          <th>Stars</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                      $stmt1 = "SELECT * FROM auto WHERE active = 1";
+                      $res1 = $con->query($stmt1);
+                      if($res1->num_rows > 0){
+                        $i=1;
+                        while($row1 = $res1->fetch_assoc()){
+                          $temp = $row1['star'];
+                          echo "
+                              <tr>
+                                <th scope='row'>{$i}</th>
+                                <td>{$row1['number']}</td>
+                                <td>";
+                                    
+                                    for($k=0; $k <5; $k++){
+                                        if($temp <= 0.45 ){
+                                            echo "<span class='fa fa-star'></span>";
+                                        }
+                                        else {
+                                            echo "<span class='fa fa-star checked'></span>";
+                                        }
+                                        $temp--;
+                                    }
+                              $i++;
+                        }
+                      }
+                        ?>
+
+                      </tbody>
+                      </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
         </section>
