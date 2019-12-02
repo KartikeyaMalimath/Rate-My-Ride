@@ -1,6 +1,5 @@
 <?php
 session_start();
-``````````````````````
 include ("components/feedtemplate.php");
 ?>
 <!DOCTYPE html>
